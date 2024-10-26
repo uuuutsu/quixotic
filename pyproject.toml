@@ -4,7 +4,9 @@ version = "0.1.0"
 description = "Will add something here later."
 readme = "README.md"
 requires-python = ">=3.12"
-dependencies = []
+dependencies = [
+    "attrs>=24.2.0",
+]
 
 
 [tool.mypy]
@@ -56,3 +58,10 @@ exclude = [".venv"]
 
 [tool.pytest.ini_options]
 python_files = "tests/*.py"
+
+[tool.uv]
+dev-dependencies = [
+    "mypy>=1.13.0",
+    "pytest>=8.3.3",
+    "ruff>=0.7.1",
+]
