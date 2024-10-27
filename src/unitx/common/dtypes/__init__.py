@@ -7,5 +7,5 @@ __all__ = (
 
 from .array import Array
 from .const import Constant
-from .type import DType
+from .types import DType
 from .unit import Unit

@@ -2,9 +2,11 @@ import attrs
 
 from src.tools import func
 
+from . import types
+
 
 @attrs.frozen
-class BaseDType:
+class AbstractDType(types.DType):
     name: str | None = None
     _id: int = attrs.field(init=False, factory=func.generate_unique_id)
 

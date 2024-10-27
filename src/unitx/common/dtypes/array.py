@@ -4,6 +4,6 @@ from . import base
 
 
 @attrs.frozen(kw_only=True)
-class Array(base.BaseDType):
+class Array(base.AbstractDType):
     size: int
     granularity: int = 1
