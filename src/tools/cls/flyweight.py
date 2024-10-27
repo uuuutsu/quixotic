@@ -15,7 +15,7 @@ def _dummy_factory(*args: typing.Any, **kwargs: typing.Any) -> str:
 
 
 @typing.final
-class FlyweightMeta(type):
+class FlyweightMeta(abc.ABCMeta):
     __flyweights__: dict[typing.Hashable, FlyweightMeta]
     __state_factory__: FlyweightStateType
 
