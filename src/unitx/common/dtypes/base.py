@@ -4,7 +4,7 @@ from src.tools import func
 
 
 @attrs.frozen
-class DType:
+class BaseDType:
     name: str | None = None
     _id: int = attrs.field(init=False, factory=func.generate_unique_id)
 

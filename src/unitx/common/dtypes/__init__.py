@@ -6,6 +6,6 @@ __all__ = (
 )
 
 from .array import Array
-from .base import DType
 from .const import Constant
+from .type import DType
 from .unit import Unit

@@ -6,5 +6,5 @@ from . import base
 
 
 @attrs.frozen(kw_only=True)
-class Constant[T](base.DType, metaclass=cls.FlyweightMeta):
+class Constant[T](base.BaseDType, metaclass=cls.FlyweightMeta):
     value: T
