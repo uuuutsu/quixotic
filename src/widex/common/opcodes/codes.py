@@ -1,7 +1,7 @@
 import abc
 import typing
 
-from src.unitx.common import dtypes
+from src.widex.common import dtypes
 
 from .types import ProcedureType
 from .utils import opcode_from_sig

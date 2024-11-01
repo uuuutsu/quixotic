@@ -2,7 +2,7 @@ import typing
 
 import pytest
 
-from src.unitx.common import dtypes
+from src.widex.common import dtypes
 
 
 def test_same_constant_state() -> None:
