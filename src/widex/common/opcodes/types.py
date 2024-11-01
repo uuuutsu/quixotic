@@ -6,7 +6,7 @@ from src.widex.common import dtypes
 
 @typing.runtime_checkable
 class OpcodeType(typing.Protocol):
-    identity: typing.Hashable
+    identity: str
 
     @abc.abstractmethod
     def get_attrs(self) -> dict[str, dtypes.DType]:
@@ -25,5 +25,5 @@ class ProcedureType(typing.Protocol):
         raise NotImplementedError
 
     @abc.abstractmethod
-    def __iter__(self) -> typing.Iterable[OpcodeType]:
+    def __iter__(self) -> typing.Iterator[OpcodeType]:
         raise NotImplementedError

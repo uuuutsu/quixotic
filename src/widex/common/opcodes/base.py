@@ -13,5 +13,5 @@ class Opcode:
         return {name: getattr(self, name) for name in self.__attrs__}
 
     @property
-    def identity(self) -> typing.Hashable:
+    def identity(self) -> str:
         return type(self).__name__
