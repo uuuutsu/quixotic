@@ -8,3 +8,6 @@ from . import base
 @attrs.frozen(kw_only=True)
 class Wide(base.AbstractDType):
     size: int
+
+    def __len__(self) -> int:
+        return self.size
