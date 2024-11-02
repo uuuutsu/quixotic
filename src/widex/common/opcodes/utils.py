@@ -11,7 +11,7 @@ from . import base
 P = typing.ParamSpec("P")
 
 
-def opcode_from_sig(func: typing.Callable[P, None]) -> typing.Callable[P, base.Opcode]:
+def opcode_from_func(func: typing.Callable[P, None]) -> typing.Callable[P, base.Opcode]:
     annot = typing.get_type_hints(func)
     annot.pop("return", None)
 
