@@ -6,11 +6,8 @@ __all__ = (
     "Wide",
 )
 
-import typing
-
 from .array import Array
 from .const import Const
 from .types import DType
 from .unit import Unit
-
-type Wide = typing.Sequence[Unit]
+from .wide import Wide
