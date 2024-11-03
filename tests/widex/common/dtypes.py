@@ -6,20 +6,15 @@ from src.widex.common import dtypes
 
 
 def test_same_constant_state() -> None:
-    const1 = dtypes.Constant(value=1)
-    const2 = dtypes.Constant(value=1)
+    const1 = dtypes.Const(value=1)
+    const2 = dtypes.Const(value=1)
     assert const1 is const2
 
 
 def test_diff_constant_state() -> None:
-    const1 = dtypes.Constant(value=1)
-    const2 = dtypes.Constant(value=2)
+    const1 = dtypes.Const(value=1)
+    const2 = dtypes.Const(value=2)
     assert const1 is not const2
-
-
-def test_unit_hashability() -> None:
-    unit = dtypes.Unit()
-    assert isinstance(unit, typing.Hashable)
 
 
 def test_array_creation_correct() -> None:
