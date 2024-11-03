@@ -2,7 +2,7 @@ __all__ = (
     "Node",
     "Increment",
     "Decrement",
-    "CURRENT",
+    "LAST_OWNER",
     "Display",
     "Input",
     "Loop",
@@ -14,7 +14,7 @@ __all__ = (
     "OwnerType",
 )
 
-from .base import CURRENT, Node
+from .base import LAST_OWNER, Node
 from .commands import (
     Clear,
     Decrement,

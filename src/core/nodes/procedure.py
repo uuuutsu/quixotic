@@ -2,9 +2,11 @@ from __future__ import annotations
 
 import typing
 
-from . import base, utils
+import attrs
+
+from . import base
 
 
-@utils.attrs_frozen
+@attrs.frozen(kw_only=True)
 class Procedure(base.Node):
     nodes: typing.Sequence[base.Node]

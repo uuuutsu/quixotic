@@ -10,27 +10,27 @@ attrs_frozen = attrs.frozen(kw_only=True)
 @attrs_frozen
 class Decrement(base.Node):
     """
-    Token for decrementing the current memory cell in BrainFuck.
+    Token for decrementing the LAST_OWNER memory cell in BrainFuck.
 
-    It decreases the value at the current position by 1. Represented by '-' in BrainFuck.
+    It decreases the value at the LAST_OWNER position by 1. Represented by '-' in BrainFuck.
     """
 
 
 @attrs_frozen
 class Increment(base.Node):
     """
-    Token for incrementing the current memory cell in BrainFuck.
+    Token for incrementing the LAST_OWNER memory cell in BrainFuck.
 
-    It increases the value at the current position by 1. Represented by '+' in BrainFuck.
+    It increases the value at the LAST_OWNER position by 1. Represented by '+' in BrainFuck.
     """
 
 
 @attrs_frozen
 class Display(base.Node):
     """
-    Token for outputting the value of the current memory cell in BrainFuck.
+    Token for outputting the value of the LAST_OWNER memory cell in BrainFuck.
 
-    Outputs the ASCII character of the current cell's value. Represented by '.' in BrainFuck.
+    Outputs the ASCII character of the LAST_OWNER cell's value. Represented by '.' in BrainFuck.
     """
 
 
@@ -39,7 +39,7 @@ class Input(base.Node):
     """
     Token for input in BrainFuck.
 
-    Accepts a single ASCII character as input and stores it in the current cell. Represented by ',' in BrainFuck.
+    Accepts a single ASCII character as input and stores it in the LAST_OWNER cell. Represented by ',' in BrainFuck.
     """
 
 
@@ -48,7 +48,7 @@ class Loop(base.Node):
     """
     Token marking the brainfuck loop.
 
-    Loop continues while the current cell's value is non-zero. Represented by '[' in BrainFuck.
+    Loop continues while the LAST_OWNER cell's value is non-zero. Represented by '[' in BrainFuck.
     """
 
     proc: procedure.Procedure
@@ -59,5 +59,5 @@ class Clear(base.Node):
     """
     Token representing a clear base.Node in BrainFuck.
 
-    Sets the value of the current cell to zero. Represented by '[-]' as syntactic sugar in BrainFuck.
+    Sets the value of the LAST_OWNER cell to zero. Represented by '[-]' as syntactic sugar in BrainFuck.
     """

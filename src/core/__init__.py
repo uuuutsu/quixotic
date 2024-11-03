@@ -2,7 +2,7 @@ __all__ = (
     "Node",
     "Increment",
     "Decrement",
-    "CURRENT",
+    "LAST_OWNER",
     "Display",
     "Input",
     "Loop",
@@ -21,7 +21,7 @@ __all__ = (
 from .bfgen import Code
 from .exceptions import CodeSemanticsViolationError, CoreError
 from .nodes import (
-    CURRENT,
+    LAST_OWNER,
     Clear,
     CodeInjection,
     CommentInjection,

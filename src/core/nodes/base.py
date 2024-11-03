@@ -4,9 +4,9 @@ import attrs
 
 from . import types
 
-CURRENT = object()
+LAST_OWNER = object()
 
 
 @attrs.frozen
 class Node:
-    owner: types.OwnerType = CURRENT
+    owner: types.OwnerType = LAST_OWNER
