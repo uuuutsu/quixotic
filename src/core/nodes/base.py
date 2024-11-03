@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import attrs
 
-from src.core import types
+from . import types
 
 CURRENT = object()
 

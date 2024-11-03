@@ -13,6 +13,7 @@ from .injection import (
     CompilerInjection,
 )
 from .procedure import Procedure
+from .types import OwnerType
 
 __all__ = (
     "Node",
@@ -27,4 +28,5 @@ __all__ = (
     "CompilerInjection",
     "CommentInjection",
     "CodeInjection",
+    "OwnerType",
 )

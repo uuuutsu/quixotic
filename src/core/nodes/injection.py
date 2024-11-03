@@ -1,8 +1,6 @@
 import attrs
 
-from src.core import types
-
-from . import base, utils
+from . import base, types, utils
 
 attrs_frozen = attrs.frozen(kw_only=True)
 
