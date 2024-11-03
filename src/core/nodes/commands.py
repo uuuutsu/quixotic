@@ -1,10 +1,8 @@
 from __future__ import annotations
 
-import typing
-
 import attrs
 
-from . import base
+from . import base, procedure
 
 attrs_frozen = attrs.frozen(kw_only=True)
 
@@ -53,7 +51,7 @@ class Loop(base.Node):
     Loop continues while the current cell's value is non-zero. Represented by '[' in BrainFuck.
     """
 
-    nodes: typing.Sequence[base.Node]
+    proc: procedure.Procedure
 
 
 @attrs_frozen

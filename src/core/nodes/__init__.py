@@ -12,6 +12,7 @@ from .injection import (
     CommentInjection,
     CompilerInjection,
 )
+from .procedure import Procedure
 
 __all__ = (
     "Node",
@@ -21,6 +22,7 @@ __all__ = (
     "Input",
     "Loop",
     "Clear",
+    "Procedure",
     "CompilerInjection",
     "CommentInjection",
     "CodeInjection",

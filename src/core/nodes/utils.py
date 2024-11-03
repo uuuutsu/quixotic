@@ -3,7 +3,11 @@ from __future__ import annotations
 import re
 import typing
 
+import attrs
+
 from src.core import exceptions
+
+attrs_frozen = attrs.frozen(kw_only=True)
 
 
 def check_injection_safety_attrs(inst: typing.Any, attr: typing.Any, info: str) -> None:
