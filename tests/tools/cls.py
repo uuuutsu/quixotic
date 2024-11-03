@@ -1,10 +1,10 @@
-from src.tools import cls
+from src.common import tools
 
 
-class MockSingleton(metaclass=cls.SingletonMeta): ...
+class MockSingleton(metaclass=tools.SingletonMeta): ...
 
 
-class MockFlyweight(metaclass=cls.FlyweightMeta):
+class MockFlyweight(metaclass=tools.FlyweightMeta):
     __slots__ = ("value",)
 
     def __init__(self, value: int) -> None:

@@ -1,6 +1,6 @@
 import typing
 
-from src.tools import generic
+from src.common import interfaces
 from src.widex.common.dtypes import Array, Const, Wide
 
 from .types import ProcedureType
@@ -72,7 +72,7 @@ def move(value: Wide, target: tuple[tuple[Wide, int], ...]) -> None: ...
 @opcode_from_sig
 def input(target: Wide) -> None: ...
 @opcode_from_sig
-def output(*args: Wide | Const[generic.PrintableType]) -> None: ...
+def output(*args: Wide | Const[interfaces.PrintableType]) -> None: ...
 
 
 @opcode_from_sig

@@ -2,11 +2,11 @@ import logging
 import os
 import typing
 
-from src.tools import func
+from src.common import tools
 
 
 def get_file_handler(name: str) -> logging.FileHandler:
-    logs_dir = func.get_root_folder() / "logs"
+    logs_dir = tools.get_root_folder() / "logs"
     os.makedirs(logs_dir, exist_ok=True)
 
     file = logging.FileHandler(

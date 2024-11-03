@@ -1,11 +1,11 @@
 import threading
 import typing
 
-from src.tools import cls
+from src.common import tools
 
 
 @typing.final
-class _Counter(metaclass=cls.SingletonMeta):
+class _Counter(metaclass=tools.SingletonMeta):
     def __init__(self) -> None:
         self._lock = threading.Lock()
         self._counter = 0
