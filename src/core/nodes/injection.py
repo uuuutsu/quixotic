@@ -14,11 +14,7 @@ class CompilerInjection(base.Node):
     """
 
     value: str = ""
-    end_owner: types.Owner | None = None
-
-    def __attrs_post_init__(self) -> None:
-        if self.end_owner is None:
-            object.__setattr__(self, "end_owner", self.owner)
+    end_owner: types.OwnerType = base.CURRENT
 
 
 @attrs_frozen
@@ -28,8 +24,8 @@ class CommentInjection(base.Node):
     """
 
     value: str = attrs.field(validator=utils.check_injection_safety_attrs, default="")
-    owner: types.Owner | None = attrs.field(init=False, default=None)
-    end_owner: types.Owner | None = attrs.field(init=False, default=None)
+    owner: types.OwnerType = attrs.field(init=False, default=base.CURRENT)
+    end_owner: types.OwnerType = attrs.field(init=False, default=base.CURRENT)
 
 
 @attrs_frozen

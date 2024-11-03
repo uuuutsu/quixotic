@@ -9,4 +9,4 @@ CURRENT = object()
 
 @attrs.frozen
 class Node:
-    owner: types.Owner = CURRENT
+    owner: types.OwnerType = CURRENT

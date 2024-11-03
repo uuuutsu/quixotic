@@ -1,4 +1,4 @@
-from .base import Node
+from .base import CURRENT, Node
 from .commands import (
     Clear,
     Decrement,
@@ -18,6 +18,7 @@ __all__ = (
     "Node",
     "Increment",
     "Decrement",
+    "CURRENT",
     "Display",
     "Input",
     "Loop",
