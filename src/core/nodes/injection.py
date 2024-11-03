@@ -16,7 +16,7 @@ class CompilerInjection(base.Node):
 
 
 @attrs_frozen
-class CommentInjection(base.Node):
+class CommentInjection(CompilerInjection):
     """
     A subclass of 'CompilerInjection' specifically for injecting comments into the compiler output.
     """
@@ -27,7 +27,7 @@ class CommentInjection(base.Node):
 
 
 @attrs_frozen
-class CodeInjection(base.Node):
+class CodeInjection(CompilerInjection):
     """
     A class for code injection tokens, inheriting from 'CompilerInjection'.
 
