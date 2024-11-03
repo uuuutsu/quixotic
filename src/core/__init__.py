@@ -14,11 +14,9 @@ __all__ = (
     "OwnerType",
     "CodeSemanticsViolationError",
     "CoreError",
-    "Code",
 )
 
 
-from .bfgen import Code
 from .exceptions import CodeSemanticsViolationError, CoreError
 from .nodes import (
     LAST_OWNER,
