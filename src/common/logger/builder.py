@@ -9,7 +9,7 @@ from . import utils
 class LoggerBuilder(interfaces.BuilderType[logging.Logger]):
     __slots__ = ("_logger",)
 
-    def __init__(self, name: str = 'root', level: int = logging.WARN) -> None:
+    def __init__(self, name: str = "root", level: int = logging.WARN) -> None:
         self._logger = logging.Logger(name, level=level)
 
     def set_file_handler(self, level: int = logging.WARN) -> typing.Self:
@@ -28,3 +28,7 @@ class LoggerBuilder(interfaces.BuilderType[logging.Logger]):
 
     def build(self) -> logging.Logger:
         return self._logger
+
+    @classmethod
+    def default(cls, name: str = "root") -> typing.Self:
+        return cls(name).set_file_handler().set_stream_handler()
