@@ -1,10 +1,12 @@
 from __future__ import annotations
 
+import typing
+
 import attrs
 
 from . import types
 
-LAST_OWNER = object()
+LAST_OWNER: typing.Final[object] = object()
 
 
 @attrs.frozen

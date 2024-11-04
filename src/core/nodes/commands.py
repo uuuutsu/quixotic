@@ -26,7 +26,7 @@ class Increment(base.Node):
 
 
 @attrs_frozen
-class Display(base.Node):
+class Output(base.Node):
     """
     Token for outputting the value of the LAST_OWNER memory cell in BrainFuck.
 

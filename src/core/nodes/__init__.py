@@ -3,7 +3,7 @@ __all__ = (
     "Increment",
     "Decrement",
     "LAST_OWNER",
-    "Display",
+    "Output",
     "Input",
     "Loop",
     "Clear",
@@ -12,16 +12,17 @@ __all__ = (
     "CommentInjection",
     "CodeInjection",
     "OwnerType",
+    "AbstractVisitor",
 )
 
 from .base import LAST_OWNER, Node
 from .commands import (
     Clear,
     Decrement,
-    Display,
     Increment,
     Input,
     Loop,
+    Output,
 )
 from .injection import (
     CodeInjection,
@@ -30,3 +31,4 @@ from .injection import (
 )
 from .procedure import Procedure
 from .types import OwnerType
+from .visitor import AbstractVisitor
