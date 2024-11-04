@@ -3,7 +3,7 @@ __all__ = (
     "Increment",
     "Decrement",
     "LAST_OWNER",
-    "Display",
+    "Output",
     "Input",
     "Loop",
     "Clear",
@@ -14,22 +14,24 @@ __all__ = (
     "OwnerType",
     "CodeSemanticsViolationError",
     "CoreError",
+    "AbstractVisitor",
 )
 
 
 from .exceptions import CodeSemanticsViolationError, CoreError
 from .nodes import (
     LAST_OWNER,
+    AbstractVisitor,
     Clear,
     CodeInjection,
     CommentInjection,
     CompilerInjection,
     Decrement,
-    Display,
     Increment,
     Input,
     Loop,
     Node,
+    Output,
     OwnerType,
     Procedure,
 )
