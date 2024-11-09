@@ -10,6 +10,12 @@ class OpcodeType(typing.Protocol):
         raise NotImplementedError
 
 
+class OpcodeFactoryType[Opcode: OpcodeType](typing.Protocol):
+    @abc.abstractmethod
+    def __call__(*args: typing.Any, **kwargs: typing.Any) -> Opcode:
+        raise NotImplementedError
+
+
 class ProcedureType(typing.Protocol):
     @abc.abstractmethod
     def __len__(self) -> int:
