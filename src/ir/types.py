@@ -1,15 +1,12 @@
 import abc
 import typing
 
-from src.widex.common import dtypes
 
-
-@typing.runtime_checkable
 class OpcodeType(typing.Protocol):
-    identity: str
+    identity: typing.ClassVar[str]
 
     @abc.abstractmethod
-    def get_attrs(self) -> dict[str, dtypes.DType]:
+    def get_attrs(self) -> dict[str, typing.Any]:
         raise NotImplementedError
 
 
