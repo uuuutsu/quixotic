@@ -5,9 +5,11 @@ __all__ = (
     "FlyweightMeta",
     "SingletonMeta",
     "camel_case_to_snake_case",
+    "BaseChain",
 )
 
 from .camel2snake import camel_case_to_snake_case
+from .chain import BaseChain
 from .flyweight import FlyweightMeta
 from .get_root import get_root_folder
 from .same import same_as
