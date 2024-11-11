@@ -11,7 +11,7 @@ __all__ = (
 
 from .camel2snake import camel_case_to_snake_case
 from .chain import BaseChain
-from .dp_factory import dp_factory
+from .dispatcher import dp_factory
 from .flyweight import FlyweightMeta
 from .get_root import get_root_folder
 from .same import same_as
