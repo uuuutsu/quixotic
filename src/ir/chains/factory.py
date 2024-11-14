@@ -6,8 +6,9 @@ import typing
 import attrs
 
 from src.common import tools
+from src.ir import opcode
 
-from . import opcode, utils
+from . import utils
 
 P = typing.ParamSpec("P")
 R = typing.TypeVar("R")
