@@ -6,7 +6,7 @@ import typing
 
 from src.common import tools
 
-from . import utils
+from . import exceptions, utils
 
 P = typing.ParamSpec("P")
 R = typing.TypeVar("R")
@@ -17,7 +17,7 @@ type CheckType = str | types.CodeType | PerfectCheckType
 
 
 def check_arg(check: CheckType) -> utils.BaseChain[typing.Callable[P, R], typing.Callable[P, R]]:
-    check = check_to_callable(check)
+    check_func = check_to_callable(check)
 
     @utils.BaseChain
     def _checked_function_factory(func: typing.Callable[P, R]) -> typing.Callable[P, R]:
@@ -25,7 +25,8 @@ def check_arg(check: CheckType) -> utils.BaseChain[typing.Callable[P, R], typing
 
         @functools.wraps(func)
         def _checked(*args: P.args, **kwargs: P.kwargs) -> R:
-            assert check(echo(*args, **kwargs))
+            if not check_func(echo(*args, **kwargs)):
+                exceptions.CheckArgError(func, check, args, kwargs)
             return func(*args, **kwargs)
 
         return _checked
