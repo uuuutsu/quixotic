@@ -3,9 +3,9 @@ __all__ = (
     "ProcedureType",
     "BaseOpcode",
     "OpcodeFactoryType",
-    "opcode_factory",
+    "signature_to_opcode",
 )
 
-from .factory import opcode_factory
+from .factory import signature_to_opcode
 from .opcode import BaseOpcode
 from .types import OpcodeFactoryType, OpcodeType, ProcedureType
