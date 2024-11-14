@@ -8,9 +8,12 @@ __all__ = (
     "BaseChain",
     "dp_factory",
     "signature_to_echo",
+    "CheckArgError",
+    "check_arg",
 )
 
 from .camel2snake import camel_case_to_snake_case
+from .check import CheckArgError, check_arg
 from .dispatcher import dp_factory
 from .flyweight import FlyweightMeta
 from .get_root import get_root_folder
