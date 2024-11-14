@@ -1,5 +1,7 @@
+import pathlib
 import threading
 import time
+import typing
 
 from src.common import tools
 
@@ -59,3 +61,19 @@ def test_camel_to_snake() -> None:
     assert tools.camel_case_to_snake_case("hello") == "hello"
     assert tools.camel_case_to_snake_case("Hello") == "hello"
     assert tools.camel_case_to_snake_case("HelloHello") == "hello_hello"
+
+
+def test_get_root() -> None:
+    # assuming pytests are run from the base dir
+    assert tools.get_root_folder() == pathlib.Path("").resolve()
+
+
+def test_sig_to_echo() -> None:
+    def _test(arg1: int, arg2: int, *, arg3: str, **kwargs: typing.Any) -> None: ...
+
+    assert tools.signature_to_echo(_test)(1, 3, arg3="sigma", erm="what") == {
+        "arg1": 1,
+        "arg2": 3,
+        "arg3": "sigma",
+        "kwargs": {"erm": "what"},
+    }
