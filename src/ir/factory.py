@@ -7,13 +7,13 @@ import attrs
 
 from src.common import tools
 
-from . import opcode
+from . import opcode, utils
 
 P = typing.ParamSpec("P")
 R = typing.TypeVar("R")
 
 
-@tools.BaseChain
+@utils.BaseChain
 def signature_to_opcode(func: typing.Callable[P, None]) -> typing.Callable[P, opcode.BaseOpcode]:
     annot = typing.get_type_hints(func)
     annot.pop("return", None)
