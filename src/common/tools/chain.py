@@ -6,6 +6,8 @@ import attrs
 
 from src.common import interfaces
 
+C = typing.TypeVar("C")
+
 
 @attrs.frozen
 class BaseChain[I, R](interfaces.ChainType[I, R]):
@@ -14,7 +16,7 @@ class BaseChain[I, R](interfaces.ChainType[I, R]):
     def __call__(self, data: I) -> R:
         return self.factory(data)
 
-    def __or__[C](self, factory: interfaces.ChainType[R, C]) -> BaseChain[I, C]:
+    def __or__(self, factory: interfaces.ChainType[R, C]) -> BaseChain[I, C]:
         def _wrapper(data: I) -> C:
             return factory(self(data))
 
