@@ -12,7 +12,7 @@ class OpcodeType(typing.Protocol):
 
 class OpcodeFactoryType(typing.Protocol):
     @abc.abstractmethod
-    def __call__(*args: typing.Any, **kwargs: typing.Any) -> OpcodeType:
+    def __call__(*args: typing.Any, **kwargs: typing.Any) -> typing.Callable[..., OpcodeType]:
         raise NotImplementedError
 
 
