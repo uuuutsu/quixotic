@@ -5,7 +5,9 @@ import typing
 
 import attrs
 
-from . import opcode, utils
+from src.common import tools
+
+from . import opcode
 
 P = typing.ParamSpec("P")
 R = typing.TypeVar("R")
@@ -24,7 +26,7 @@ def signature_to_opcode(func: typing.Callable[P, None]) -> typing.Callable[P, op
         },
     )
     opcode_cls = attrs.frozen(cls)
-    echo = utils.signature_to_echo(func)
+    echo = tools.signature_to_echo(func)
 
     @functools.wraps(func)
     def _inner(*args: P.args, **kwargs: P.kwargs) -> opcode.BaseOpcode:
