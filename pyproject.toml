@@ -7,7 +7,7 @@ requires-python = ">=3.12"
 dependencies = [
     "attrs>=24.2.0",
     "multimethod>=1.12",
-    "pyperclip>=1.9.0",
+    "pyclip>=0.7.0",
 ]
 
 
