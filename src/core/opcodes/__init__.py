@@ -10,6 +10,7 @@ __all__ = (
     "compiler_injection",
     "comment_injection",
     "code_injection",
+    "Walker",
 )
 
 from .codes import (
@@ -24,3 +25,4 @@ from .codes import (
     output,
 )
 from .owner import CURRENT_OWNER, OwnerType
+from .walker import Walker
