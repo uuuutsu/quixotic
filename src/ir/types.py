@@ -38,3 +38,11 @@ class WalkerType(typing.Protocol):
     @abc.abstractmethod
     def walk(self, __proc: ProcedureType) -> None:
         raise NotImplementedError
+
+
+class DType(typing.Protocol):
+    name: str | None
+
+    @abc.abstractmethod
+    def __hash__(self) -> int:
+        raise NotImplementedError
