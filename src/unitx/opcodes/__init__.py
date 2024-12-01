@@ -16,6 +16,7 @@ __all__ = [
     "clear",
     "alloc",
     "free",
+    "Walker",
 ]
 
 
@@ -38,3 +39,4 @@ from .codes import (
     sub,
     xor,
 )
+from .walker import Walker
