@@ -15,6 +15,6 @@ __all__ = (
 from .dtype import DTypeBase
 from .factory import signature_to_opcode
 from .opcode import BaseOpcode
+from .state import StateBase
 from .types import DType, OpcodeFactoryType, OpcodeType, ProcedureType, StateType, WalkerType
 from .walker import WalkerBase
-from .state import StateBase
