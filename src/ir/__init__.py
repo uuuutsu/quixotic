@@ -8,10 +8,13 @@ __all__ = (
     "WalkerBase",
     "DType",
     "DTypeBase",
+    "StateType",
+    "StateBase",
 )
 
 from .dtype import DTypeBase
 from .factory import signature_to_opcode
 from .opcode import BaseOpcode
-from .types import DType, OpcodeFactoryType, OpcodeType, ProcedureType, WalkerType
+from .types import DType, OpcodeFactoryType, OpcodeType, ProcedureType, StateType, WalkerType
 from .walker import WalkerBase
+from .state import StateBase
