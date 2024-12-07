@@ -4,7 +4,7 @@ from src import ir
 from src.core import prelude
 from src.ir import types as ir_types
 
-from . import code, pointer, types
+from . import code, pointer, types, utils
 
 
 @attrs.frozen
@@ -14,24 +14,37 @@ class Generator(prelude.Visitor[None]):
     code: types.CodeType[str]
 
     def decrement(self, owner: prelude.OwnerType) -> None:
-        raise NotImplementedError
+        self.pointer.move(self.mapping[owner])
+        self.code.write("-")
 
     def increment(self, owner: prelude.OwnerType) -> None:
-        raise NotImplementedError
+        self.pointer.move(self.mapping[owner])
+        self.code.write("+")
 
     def output(self, owner: prelude.OwnerType) -> None:
-        raise NotImplementedError
+        self.pointer.move(self.mapping[owner])
+        self.code.write(".")
 
     def input(self, owner: prelude.OwnerType) -> None:
-        raise NotImplementedError
+        self.pointer.move(self.mapping[owner])
+        self.code.write(",")
 
     def loop(self, owner: prelude.OwnerType, opcode: ir_types.OpcodeType) -> None:
-        raise NotImplementedError
+        self.pointer.move(self.mapping[owner])
+        self.code.write("[")
+
+        self.generate(opcode)
+
+        self.pointer.move(self.mapping[owner])
+        self.code.write("]")
 
     def clear(self, owner: prelude.OwnerType) -> None:
-        raise NotImplementedError
+        self.pointer.move(self.mapping[owner])
+        self.code.write("[-]")
 
-    def comment(self, value: str) -> None: ...
+    def comment(self, value: str) -> None:
+        utils.check_injection_safety(value)
+        self.code.write(value)
 
     def generate(self, opcode: ir_types.OpcodeType) -> None:
         self.visit(opcode)
