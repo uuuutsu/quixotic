@@ -24,8 +24,8 @@ class DTypeBase:
 
 @typing.final
 @attrs.frozen
-class Reg[I: int](DTypeBase, metaclass=tools.FlyweightMeta):
-    idx: I
+class Reg(DTypeBase, metaclass=tools.FlyweightMeta):
+    idx: int
 
 
 @typing.final
