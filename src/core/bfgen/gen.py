@@ -16,37 +16,42 @@ class Generator(prelude.Visitor[None]):
     code: types.CodeType[str]
 
     def decrement(self, owner: prelude.OwnerType) -> None:
-        self.pointer.move(self.mapping[owner])
+        self.pointer.move(self._get_position(owner))
         self.code.write("-")
 
     def increment(self, owner: prelude.OwnerType) -> None:
-        self.pointer.move(self.mapping[owner])
+        self.pointer.move(self._get_position(owner))
         self.code.write("+")
 
     def output(self, owner: prelude.OwnerType) -> None:
-        self.pointer.move(self.mapping[owner])
+        self.pointer.move(self._get_position(owner))
         self.code.write(".")
 
     def input(self, owner: prelude.OwnerType) -> None:
-        self.pointer.move(self.mapping[owner])
+        self.pointer.move(self._get_position(owner))
         self.code.write(",")
 
     def loop(self, owner: prelude.OwnerType, opcode: ir_types.OpcodeType) -> None:
-        self.pointer.move(self.mapping[owner])
+        self.pointer.move(self._get_position(owner))
         self.code.write("[")
 
         self.generate(opcode)
 
-        self.pointer.move(self.mapping[owner])
+        self.pointer.move(self._get_position(owner))
         self.code.write("]")
 
     def clear(self, owner: prelude.OwnerType) -> None:
-        self.pointer.move(self.mapping[owner])
+        self.pointer.move(self._get_position(owner))
         self.code.write("[-]")
 
     def comment(self, value: str) -> None:
         utils.check_injection_safety(value)
         self.code.write(value)
+
+    def _get_position(self, owner: prelude.OwnerType) -> int:
+        if owner is prelude.CURRENT_OWNER:
+            return self.pointer.position
+        return self.mapping[owner]
 
     def generate(self, opcode: ir_types.OpcodeType) -> None:
         self.visit(opcode)
