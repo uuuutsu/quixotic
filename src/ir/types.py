@@ -13,7 +13,7 @@ class OpcodeType(typing.Protocol):
 
 class VisitorType[T](typing.Protocol):
     @abc.abstractmethod
-    def walk(self, __proc: OpcodeType) -> T:
+    def walk(self, __opcode: OpcodeType) -> T:
         raise NotImplementedError
 
 
