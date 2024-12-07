@@ -12,13 +12,13 @@ P = typing.ParamSpec("P")
 R = typing.TypeVar("R")
 
 
-def signature_to_opcode(func: typing.Callable[P, None]) -> typing.Callable[P, opcodes.BaseOpcode]:
+def signature_to_opcode(func: typing.Callable[P, None]) -> typing.Callable[P, opcodes.Opcode]:
     annot = typing.get_type_hints(func)
     annot.pop("return", None)
 
     cls = type(
         func.__name__,
-        (opcodes.BaseOpcode,),
+        (opcodes.Opcode,),
         {
             "__annotations__": annot,
             "__attrs__": func.__code__.co_varnames,
@@ -28,8 +28,8 @@ def signature_to_opcode(func: typing.Callable[P, None]) -> typing.Callable[P, op
     echo = tools.signature_to_echo(func)
 
     @functools.wraps(func)
-    def _inner(*args: P.args, **kwargs: P.kwargs) -> opcodes.BaseOpcode:
+    def _inner(*args: P.args, **kwargs: P.kwargs) -> opcodes.Opcode:
         func(*args, **kwargs)
-        return typing.cast(opcodes.BaseOpcode, opcode_cls(**echo(*args, **kwargs)))
+        return typing.cast(opcodes.Opcode, opcode_cls(**echo(*args, **kwargs)))
 
     return _inner

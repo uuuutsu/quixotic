@@ -1,9 +1,9 @@
 __all__ = (
-    "BaseOpcode",
+    "Opcode",
     "Procedure",
     "same_as",
 )
 
-from ..opcodes.same import same_as
-from .base import BaseOpcode
+from .base import Opcode
 from .proc import Procedure
+from .same import same_as
