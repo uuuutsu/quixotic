@@ -1,3 +1,3 @@
-__all__ = ("VisitorBase",)
+__all__ = ("Visitor",)
 
-from .base import VisitorBase
+from .base import Visitor
