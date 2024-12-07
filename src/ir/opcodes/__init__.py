@@ -1,7 +1,3 @@
-__all__ = (
-    "Opcode",
-    "Procedure",
-)
+__all__ = ("Opcode",)
 
 from .base import Opcode
-from .proc import Procedure

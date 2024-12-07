@@ -8,9 +8,10 @@ __all__ = (
     "loop",
     "clear",
     "comment",
+    "procedure",
     "Visitor",
 )
 
 from .dtypes import CURRENT_OWNER, OwnerType
-from .opcodes import clear, comment, decrement, increment, input, loop, output
+from .opcodes import clear, comment, decrement, increment, input, loop, output, procedure
 from .visitor import Visitor

@@ -1,8 +1,8 @@
 import collections.abc
+import typing
 
 import attrs
 
-from src import ir
 from src.core import prelude
 from src.ir import types as ir_types
 
@@ -14,6 +14,10 @@ class Generator(prelude.Visitor[None]):
     mapping: collections.abc.Mapping[prelude.OwnerType, int]
     pointer: types.PointerType
     code: types.CodeType[str]
+
+    def procedure(self, opcodes: typing.Sequence[ir_types.OpcodeType]) -> None:
+        for opcode in opcodes:
+            self.generate(opcode)
 
     def decrement(self, owner: prelude.OwnerType) -> None:
         self.pointer.move(self._get_position(owner))
@@ -57,7 +61,7 @@ class Generator(prelude.Visitor[None]):
         self.visit(opcode)
 
 
-def make_generator(mapping: ir.State[prelude.OwnerType, int]) -> Generator:
+def make_generator(mapping: collections.abc.Mapping[prelude.OwnerType, int]) -> Generator:
     code_ = code.Code()
     return Generator(
         mapping,

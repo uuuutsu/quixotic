@@ -1,4 +1,5 @@
 import abc
+import typing
 
 from src import ir
 from src.ir import types
@@ -7,6 +8,10 @@ from . import dtypes
 
 
 class Visitor[T](ir.Visitor[T]):
+    @abc.abstractmethod
+    def procedure(self, opcodes: typing.Sequence[types.OpcodeType]) -> T:
+        raise NotImplementedError
+
     @abc.abstractmethod
     def decrement(self, owner: dtypes.OwnerType) -> T:
         raise NotImplementedError
