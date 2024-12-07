@@ -1,3 +1,5 @@
+import collections.abc
+
 import attrs
 
 from src import ir
@@ -9,7 +11,7 @@ from . import code, pointer, types, utils
 
 @attrs.frozen
 class Generator(prelude.Visitor[None]):
-    mapping: ir.State[prelude.OwnerType, int]
+    mapping: collections.abc.Mapping[prelude.OwnerType, int]
     pointer: types.PointerType
     code: types.CodeType[str]
 
