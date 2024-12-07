@@ -10,16 +10,12 @@ _DEFAULT_START_POSITION: typing.Final[int] = 0
 
 
 @attrs.define
-class Pointer:
+class Pointer(types.PointerType):
     code: types.CodeType
     position: int = attrs.field(default=_DEFAULT_START_POSITION)
 
-    def move(self, new_pos: typing.Optional[int], gen_path: bool = True) -> None:
-        if new_pos is None:
-            return
-        if gen_path:
-            self.code.write(self._get_path(new_pos))
-
+    def move(self, new_pos: int) -> None:
+        self.code.write(self._get_path(new_pos))
         self.position = new_pos
 
     def _get_path(self, new_pos: int) -> str:
