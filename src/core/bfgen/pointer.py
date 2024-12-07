@@ -11,7 +11,7 @@ _DEFAULT_START_POSITION: typing.Final[int] = 0
 
 @attrs.define
 class Pointer(types.PointerType):
-    code: types.CodeType
+    code: types.CodeType[str]
     position: int = attrs.field(default=_DEFAULT_START_POSITION)
 
     def move(self, new_pos: int) -> None:

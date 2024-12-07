@@ -1,9 +1,20 @@
-import io
+import abc
 import typing
 
-type CodeType = io.StringIO
+
+class CodeType[T: str](typing.Protocol):
+    @abc.abstractmethod
+    def write(self, __data: T) -> None:
+        raise NotImplementedError
+
+    @abc.abstractmethod
+    def read(self) -> T:
+        raise NotImplementedError
 
 
 class PointerType(typing.Protocol):
     position: int
-    def move(self, __pos: int) -> None: ...
+
+    @abc.abstractmethod
+    def move(self, __pos: int) -> None:
+        raise NotImplementedError
