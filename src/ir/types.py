@@ -11,33 +11,9 @@ class OpcodeType(typing.Protocol):
         raise NotImplementedError
 
 
-class OpcodeFactoryType(typing.Protocol):
+class VisitorType[T](typing.Protocol):
     @abc.abstractmethod
-    def __call__(*args: typing.Any, **kwargs: typing.Any) -> typing.Callable[..., OpcodeType]:
-        raise NotImplementedError
-
-
-class ProcedureType(typing.Protocol):
-    @abc.abstractmethod
-    def __len__(self) -> int:
-        raise NotImplementedError
-
-    @abc.abstractmethod
-    def __getitem__(self, idx: int) -> OpcodeType:
-        raise NotImplementedError
-
-    @abc.abstractmethod
-    def __iter__(self) -> typing.Iterator[OpcodeType]:
-        raise NotImplementedError
-
-    @abc.abstractmethod
-    def __hash__(self) -> int:
-        raise NotImplementedError
-
-
-class WalkerType(typing.Protocol):
-    @abc.abstractmethod
-    def walk(self, __proc: ProcedureType) -> None:
+    def walk(self, __proc: OpcodeType) -> T:
         raise NotImplementedError
 
 

@@ -1,7 +1,7 @@
 from . import types
 
 
-class WalkerBase(types.WalkerType):
+class VisitorBase(types.WalkerType):
     def walk(self, proc: types.ProcedureType) -> None:
         for opcode in proc:
             self.step(opcode)
