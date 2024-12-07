@@ -1,6 +1,7 @@
 import abc
 
 from src import ir
+from src.ir import types
 
 from . import dtypes
 
@@ -23,7 +24,7 @@ class Visitor[T](ir.Visitor[T]):
         raise NotImplementedError
 
     @abc.abstractmethod
-    def loop(self, owner: dtypes.OwnerType, opcode: ir.Opcode) -> T:
+    def loop(self, owner: dtypes.OwnerType, opcode: types.OpcodeType) -> T:
         raise NotImplementedError
 
     @abc.abstractmethod
@@ -31,10 +32,5 @@ class Visitor[T](ir.Visitor[T]):
         raise NotImplementedError
 
     @abc.abstractmethod
-    def comment(
-        self,
-        value: str,
-        owner: dtypes.OwnerType = dtypes.CURRENT_OWNER,
-        end_owner: dtypes.OwnerType = dtypes.CURRENT_OWNER,
-    ) -> None:
+    def comment(self, value: str) -> None:
         raise NotImplementedError

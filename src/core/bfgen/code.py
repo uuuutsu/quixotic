@@ -16,8 +16,11 @@ class Code(types.CodeType[str]):
     max_output_size: int = attrs.field(default=_DEFAULT_MAX_OUTPUT_SIZE)
     source_code: io.StringIO = attrs.field(factory=io.StringIO)
 
-    def add(self, code: str) -> None:
+    def write(self, code: str) -> None:
         self.source_code.write(code)
+
+    def read(self) -> str:
+        return self.source_code.getvalue()
 
     def save(
         self,

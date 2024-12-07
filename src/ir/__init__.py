@@ -3,7 +3,6 @@ __all__ = (
     "Const",
     "signature_to_opcode",
     "Opcode",
-    "same_as",
     "Procedure",
     "State",
     "Visitor",
@@ -12,6 +11,6 @@ __all__ = (
 
 from .dtypes import Const, DTypeBase
 from .factory import signature_to_opcode
-from .opcodes import Opcode, Procedure, same_as
+from .opcodes import Opcode, Procedure
 from .state import State
 from .visitor import Visitor

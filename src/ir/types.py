@@ -13,13 +13,11 @@ class OpcodeType(typing.Protocol):
 
 class VisitorType[I, O](typing.Protocol):
     @abc.abstractmethod
-    def walk(self, __expr: I) -> O:
+    def visit(self, __expr: I) -> O:
         raise NotImplementedError
 
 
 class DType(typing.Protocol):
-    name: str | None
-
     @abc.abstractmethod
     def __hash__(self) -> int:
         raise NotImplementedError
