@@ -3,7 +3,7 @@ from __future__ import annotations
 import typing
 
 from src import ir
-from src.unitx.opcodes import dtypes
+from src.unitx.prelude import dtypes
 
 
 class State(ir.StateBase[dtypes.Unit | dtypes.Array, int | list[int]]):

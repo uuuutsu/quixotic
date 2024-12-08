@@ -3,8 +3,8 @@ import typing
 import attrs
 
 from src import ir
-from src.unitx import opcodes
-from src.unitx.opcodes.dtypes import Array, Const, Unit
+from src.unitx import prelude
+from src.unitx.prelude.dtypes import Array, Const, Unit
 
 from .state import State
 
@@ -13,7 +13,7 @@ type UnitSeq = Const[tuple[Unit, ...]]
 
 
 @attrs.frozen
-class Emulator(opcodes.Walker):
+class Emulator(prelude.Walker):
     state: State = attrs.field(factory=State)
 
     @abc.abstractmethod
