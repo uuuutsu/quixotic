@@ -1,17 +1,12 @@
+import attrs
+
 from src.common import tools
-from src.ir import types
 
 
-@tools.impl(types.DType)
+@attrs.frozen(hash=False, repr=False)
 class DTypeBase:
-    __slots__ = (
-        "id",
-        "name",
-    )
-
-    def __init__(self, name: str | None = None, id: int | None = None) -> None:
-        self.name = name
-        self.id = id or tools.generate_unique_id()
+    name: str | None = None
+    id: int = attrs.field(factory=tools.generate_unique_id)
 
     def __hash__(self) -> int:
         return self.id

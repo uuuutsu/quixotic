@@ -1,4 +1,5 @@
 __all__ = [
+    "procedure",
     "add",
     "move",
     "alloc",
@@ -16,5 +17,6 @@ from .opcodes import (
     alloc,
     free,
     move,
+    procedure,
 )
 from .visitor import Visitor

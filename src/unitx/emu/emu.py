@@ -2,6 +2,7 @@ import typing
 
 import attrs
 
+from src.ir import types
 from src.unitx import prelude
 from src.unitx.prelude.dtypes import Array, Const, Unit
 
@@ -14,6 +15,10 @@ type UnitSeq = Const[tuple[Unit, ...]]
 @attrs.frozen
 class Emulator(prelude.Visitor[None]):
     state: State = attrs.field(factory=State)
+
+    def procedure(self, opcodes: typing.Sequence[types.OpcodeType]) -> None:
+        for opcode in opcodes:
+            self.visit(opcode)
 
     def add(self, left: Unit | Int, right: Unit | Int, target: Unit) -> None:
         self.state[target] = self._get_value(left) + self._get_value(right)
@@ -48,3 +53,6 @@ class Emulator(prelude.Visitor[None]):
                 if isinstance(obj.value, tuple) and all(isinstance(o, Unit) for o in obj.value):
                     return int.from_bytes(bytes(map(self._get_value, obj.value)), "little", signed=False)
                 return obj.value  # type: ignore
+
+    def emulate(self, opcode: types.OpcodeType) -> None:
+        return self.visit(opcode)

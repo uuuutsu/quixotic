@@ -3,11 +3,9 @@ import typing
 import attrs
 
 from src.common import tools
-from src.ir import types
 
 
 @attrs.frozen
-@tools.impl(types.OpcodeType)
 class Opcode(metaclass=tools.FlyweightMeta):
     __slots__: typing.ClassVar[tuple[str, ...]] = ()
     identity: typing.ClassVar[str]

@@ -18,6 +18,8 @@ class VisitorType[I, O](typing.Protocol):
 
 
 class DType(typing.Protocol):
+    name: str | None
+
     @abc.abstractmethod
     def __hash__(self) -> int:
         raise NotImplementedError

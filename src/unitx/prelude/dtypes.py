@@ -22,5 +22,5 @@ class Array(ir.DTypeBase):
     )
 
 
-@attrs.frozen(kw_only=True)
-class Unit(ir.DTypeBase): ...
+class Unit(ir.DTypeBase):
+    __slots__ = ()
