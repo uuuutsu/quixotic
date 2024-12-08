@@ -10,11 +10,11 @@ type UnitSeq = Const[tuple[Unit, ...]]
 
 class Visitor[T](ir.Visitor[T]):
     @abc.abstractmethod
-    def add(self, augend: Unit | Int, addend: Unit | Int, target: Unit) -> None:
+    def add(self, left: Unit | Int, right: Unit | Int, target: Unit) -> None:
         raise NotImplementedError
 
     @abc.abstractmethod
-    def move(self, from_: Unit, to_: tuple[tuple[Unit, int], ...]) -> None:
+    def move(self, left: Unit, target: tuple[tuple[Unit, int], ...]) -> None:
         raise NotImplementedError
 
     @abc.abstractmethod

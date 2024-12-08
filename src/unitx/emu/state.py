@@ -6,7 +6,7 @@ from src import ir
 from src.unitx.prelude import dtypes
 
 
-class State(ir.StateBase[dtypes.Unit | dtypes.Array, int | list[int]]):
+class State(ir.State[dtypes.Unit | dtypes.Array, int | list[int]]):
     if typing.TYPE_CHECKING:
 
         @typing.overload  # type: ignore
